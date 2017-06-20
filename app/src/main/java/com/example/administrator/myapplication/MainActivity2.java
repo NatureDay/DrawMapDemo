@@ -53,7 +53,7 @@ public class MainActivity2 extends AppCompatActivity implements PolygonView.onDr
 
 //            http://www.google.cn/maps/vt?lyrs=s@729&gl=cn&x=434469&y=214609&z=19
             // http://www.google.cn/maps  手机上使用
-            return getBaseUrl() + "/vt/lyrs=h@729&gl=cn&x=" + aTile.getX() + "&y=" + aTile.getY() + "&z=" + aTile.getZoomLevel();
+            return getBaseUrl() + "/vt?lyrs=h@729&gl=cn&x=" + aTile.getX() + "&y=" + aTile.getY() + "&z=" + aTile.getZoomLevel();
         }
     };
 
