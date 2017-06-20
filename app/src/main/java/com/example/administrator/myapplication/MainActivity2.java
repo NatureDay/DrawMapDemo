@@ -41,13 +41,19 @@ public class MainActivity2 extends AppCompatActivity implements PolygonView.onDr
 //            "http://mt0.google.com",
 //            "http://mt1.google.com",
 //            "http://mt2.google.com",
-            "http://mt3.google.com"
-//            "http://www.google.cn/maps"
+//            "http://mt3.google.com"
+            "http://www.google.cn/maps"
     }) {
         @Override
         public String getTileURLString(MapTile aTile) {
-            return getBaseUrl() + "/vt/lyrs=y&hl=zh-CN&gl=cn&x=" + aTile.getX() + "&y=" + aTile.getY() + "&z=" + aTile.getZoomLevel();
+//            return getBaseUrl() + "/vt/lyrs=y&hl=zh-CN&gl=cn&x=" + aTile.getX() + "&y=" + aTile.getY() + "&z=" + aTile.getZoomLevel();
+
+            // http://www.google.cn/maps  PC上使用
 //            return getBaseUrl() + "/vt/lyrs=y@189&gl=cn&x=" + aTile.getX() + "&y=" + aTile.getY() + "&z=" + aTile.getZoomLevel();
+
+//            http://www.google.cn/maps/vt?lyrs=s@729&gl=cn&x=434469&y=214609&z=19
+            // http://www.google.cn/maps  手机上使用
+            return getBaseUrl() + "/vt/lyrs=h@729&gl=cn&x=" + aTile.getX() + "&y=" + aTile.getY() + "&z=" + aTile.getZoomLevel();
         }
     };
 
@@ -63,6 +69,10 @@ public class MainActivity2 extends AppCompatActivity implements PolygonView.onDr
         mMapView.setTileSource(GoogleSat);
         mMapView.setBuiltInZoomControls(true);
         mMapView.getController().setZoom(15);
+        /**
+         * 图片随着dpi变。。。。。。
+         */
+        mMapView.setTilesScaledToDpi(true);
         mMapView.setMaxZoomLevel(20);
         mMapView.setMinZoomLevel(5);
         GeoPoint point = new GeoPoint(31.3234634, 118.3631643);
